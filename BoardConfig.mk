@@ -102,6 +102,9 @@ BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
+# Properties
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+
 # Display
 TARGET_SCREEN_DENSITY := 330
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
