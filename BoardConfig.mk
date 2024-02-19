@@ -83,6 +83,16 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 TARGET_USES_MKE2FS := true
 
+# Metadata
+BOARD_USES_METADATA_PARTITION := true
+BOARD_ROOT_EXTRA_FOLDERS += metadata
+
+# System as root
+BOARD_SUPPRESS_SECURE_ERASE := true
+
+# Use LZ4 Ramdisk compression instead of GZIP
+BOARD_RAMDISK_USE_LZ4 := true
+
 # Verified Boot
 BOARD_AVB_ENABLE := true
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
@@ -93,9 +103,9 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
 # Display
 TARGET_SCREEN_DENSITY := 330
+TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 2047
 TW_DEFAULT_BRIGHTNESS := 500
-
 
 ifneq ($(OF_HIDE_NOTCH),1)
 # Configure Status bar icons for regular TWRP builds only
@@ -117,8 +127,6 @@ TW_INCLUDE_CRYPTO_FBE := true
 TW_INCLUDE_FBE_METADATA_DECRYPT := true
 TW_FIX_DECRYPTION_ON_DATA_MEDIA := true
 
-
-
 # TWRP Configuration
 TW_THEME := portrait_hdpi
 TW_INCLUDE_NTFS_3G    := true
@@ -136,6 +144,7 @@ TW_INCLUDE_FB2PNG := true
 # TW Version
 TW_DEVICE_VERSION := Norikhsan90™
 TW_LOOP_DEVICE_ERRORS_TO_LOG := true
+TW_IGNORE_LOGICAL_MOUNT_ERRORS := true
 
 # This device does not support fastboot boot, do *NOT* remove!
 TW_NO_FASTBOOT_BOOT := true
